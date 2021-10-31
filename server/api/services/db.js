@@ -3,10 +3,7 @@ const posts = require('../data/posts.json')
 class Database {
   constructor() {
     this._posts = posts
-    this._counter = 0
-
-    this.insert('example 0')
-    this.insert('example 1')
+    this._counter = 3
   }
 
   all() {
@@ -14,13 +11,15 @@ class Database {
   }
 
   byId(id) {
-    return Promise.resolve(this._posts[id])
+    const post = this._posts.find(p => p.id == id)
+    return Promise.resolve(post)
   }
 
-  insert(name) {
+  insert(title, body) {
     const record = {
       id: this._counter,
-      name,
+      title,
+      body
     }
 
     this._counter += 1

@@ -44,7 +44,6 @@
     "mocha": "^8.4.0",
     "nodemon": "^2.0.7",
     "pino-pretty": "^5.0.1",
-    "prettier": "^2.3.0",
     "supertest": "^6.1.3"
   },
   "author": "Carmine DiMascio <cdimascio@gmail.com> (https://github.com/cdimascio)"

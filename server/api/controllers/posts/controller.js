@@ -13,8 +13,9 @@ export class Controller {
   }
 
   create(req, res) {
-    PostService.create(req.body.name).then(r =>
-      res.status(201).location(`/api/v1/examples/${r.id}`).json(r)
+    const { title, body } = req.body
+    PostService.create(title, body).then(r =>
+      res.status(201).location(`/api/v1/posts/${r.id}`).json(r)
     )
   }
 }

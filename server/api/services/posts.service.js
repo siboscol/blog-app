@@ -12,8 +12,8 @@ class ExamplesService {
     return db.byId(id)
   }
 
-  create(name) {
-    return db.insert(name)
+  create(title, body) {
+    return db.insert(title, body)
   }
 }
 

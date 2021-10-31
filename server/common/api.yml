@@ -23,7 +23,6 @@ definitions:
     required:
       - title
       - body
-      - comments
     properties:
       title:
         type: string

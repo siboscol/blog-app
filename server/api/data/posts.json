@@ -1,16 +1,14 @@
 [
   {
-    "id": 348109414,
-    "name": "Demonstration Blog Post",
-    "post_body": "<p>This is an example blog post.  You can delete this blog post by going to the blog dashboard.</p><p>We hope you enjoy your HubSpot!</p>",
-    "post_summary": "<p>This is an example blog post.  You can delete this blog post by going to the blog dashboard.</p>",
-    "preview_key": "AhbF8tzV",
-    "url": "http://62515.sites.hubspot.com/blog/your-first-blog-post"
+    "id": 1,
+    "title": "Post n.1",
+    "body": "This is an example of a blog post.",
+    "comments": 7
   },
   {
-    "id": 352531735,
-    "name": "Demonstrating the Blog Post API",
-    "post_body": "<p>This blog post is meant to demonstrate the capabilities of the CMS API.</p><p><span>Part content system, part personalization engine. HubSpot's CMS is the first integrated website, blog and landing page system to be optimized for mobile right out-of-the-box. Fully integrated with every marketing channel, it adapts to each viewer's unique context.</span></p><p><span><span>HubSpot is a complete inbound marketing platform. So not only are all of the tools you use in one place, your customers get a seamless experience from email to social to web. Brilliant.</span></span></p>",
-    "url": "http://62515.sites.hubspot.com/blog/demonstrating-the-blog-post-api"
+    "id": 2,
+    "title": "Post n.2",
+    "body": "This blog post is meant to demonstrate the capabilities of blog app APIs",
+    "comments": 5
   }
 ]
