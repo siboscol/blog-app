@@ -5,8 +5,8 @@ info:
   description: Simple Blog Application
 basePath: /api/v1
 tags:
-  - name: Examples
-    description: Simple example endpoints
+  - name: Posts
+    description: Posts endpoints
   - name: Specification
     description: The swagger API specification
 
@@ -17,55 +17,63 @@ produces:
 
 
 definitions:
-  ExampleBody:
+  PostBody:
     type: object
-    title: example
+    title: post
     required:
-      - name
+      - title
+      - body
+      - comments
     properties:
-      name:
+      title:
         type: string
-        example: no_stress
+        title: post n.1
+      body:
+        type: string
+        body: Lorem Ipsum lorem ipsum..
+      comments:
+        type: integer
+        comments: 3
 
 paths:
-  /examples:
+  /posts:
     get:
       tags:
-        - Examples
-      description: Fetch all examples
+        - Posts
+      description: Fetch all posts
       responses:
         200:
-          description: Returns all examples
+          description: Returns all posts
     post:
       tags:
-        - Examples
-      description: Create a new example
+        - Posts
+      description: Create a new Post
       parameters:
-        - name: example
+        - name: post
           in: body
           description: an example
           required: true
           schema: 
-            $ref: "#/definitions/ExampleBody"
+            $ref: "#/definitions/PostBody"
       responses:
         200:
           description: Returns all examples
 
-  /examples/{id}:
+  /posts/{id}:
     get:
       tags:
-        - Examples
+        - Posts
       parameters:
         - name: id
           in: path
           required: true
-          description: The id of the example to retrieve
+          description: The id of the Post to retrieve
           type: integer
       responses:
         200:
-          description: Return the example with the specified id
+          description: Return the Post with the specified id
         404:
-          description: Example not found
+          description: Post not found
 
   /spec:
     get:
