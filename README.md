@@ -107,13 +107,5 @@ Fix all prettier linter errors
 npm run lint
 ```
 
-## Deploy It
-
-Deploy to CloudFoundry
-
-```shell
-cf push blog
-```
-
 
    
