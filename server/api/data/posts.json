@@ -3,12 +3,44 @@
     "id": 1,
     "title": "Post n.1",
     "body": "This is an example of a blog post.",
-    "comments": 7
+    "comments": [
+      {
+        "id": 1,
+        "text": "Comment n.1",
+        "username": "sberto",
+        "timespamp": 434234324
+      },
+      {
+        "id": 2,
+        "text": "Comment n.2",
+        "username": "sberto",
+        "timespamp": 434234324
+      },
+      {
+        "id": 3,
+        "text": "Comment n.3",
+        "username": "sberto",
+        "timespamp": 434234324
+      }
+    ]
   },
   {
     "id": 2,
     "title": "Post n.2",
     "body": "This blog post is meant to demonstrate the capabilities of blog app APIs",
-    "comments": 5
+    "comments": [
+      {
+        "id": 1,
+        "text": "Comment n.1 post n.2",
+        "username": "sberto",
+        "timespamp": 434234324
+      },
+      {
+        "id": 2,
+        "text": "Comment n.2 post n.2",
+        "username": "sberto",
+        "timespamp": 434234324
+      }
+    ]
   }
 ]

@@ -7,6 +7,8 @@ basePath: /api/v1
 tags:
   - name: Posts
     description: Posts endpoints
+  - name: Comments
+    description: Comments endpoints
   - name: Specification
     description: The swagger API specification
 
@@ -30,9 +32,18 @@ definitions:
       body:
         type: string
         body: Lorem Ipsum lorem ipsum..
-      comments:
-        type: integer
-        comments: 3
+  CommentBody:
+    type: object
+    title: comment
+    required:
+      - text
+    properties:
+      text:
+        type: string
+        text: Some comment
+      username:
+        type: string
+        username: sberto
 
 paths:
   /posts:
@@ -73,6 +84,86 @@ paths:
           description: Return the Post with the specified id
         404:
           description: Post not found
+
+  /posts/{postId}/comments:
+    get:
+      tags:
+        - Comments
+      parameters:
+        - name: postId
+          in: path
+          required: true
+          description: The id of the Post to retrieve comments from
+          type: integer
+      responses:
+        200:
+          description: Return a list of comments for the specified Post id
+        404:
+          description: Post not found
+    post:
+      tags:
+        - Comments
+      description: Create a new Post
+      parameters:
+        - name: postId
+          in: path
+          required: true
+          description: The id of the Post where to create a new comment
+          type: integer
+        - name: comment
+          in: body
+          description: a new comment for the post
+          required: true
+          schema: 
+            $ref: "#/definitions/CommentBody"
+      responses:
+        200:
+          description: Returns the commented created
+    
+  /posts/{postId}/comments/{commentId}:
+    get:
+      tags:
+        - Comments
+      parameters:
+        - name: postId
+          in: path
+          required: true
+          description: The id of the Post to retrieve comments from
+          type: integer
+        - name: commentId
+          in: path
+          required: true
+          description: The id of the Comment to retrieve from the post
+          type: integer
+      responses:
+        200:
+          description: Return the comment for the specified Post id and Comment id
+        404:
+          description: Comment not found
+    put:
+      tags:
+        - Comments
+      description: Update a comment
+      parameters:
+        - name: postId
+          in: path
+          required: true
+          description: The id of the Post where to create a new comment
+          type: integer
+        - name: commentId
+          in: path
+          required: true
+          description: The id of the Comment to retrieve from the post
+          type: integer
+        - name: comment
+          in: body
+          description: new text of comment for the specified comment id and post id
+          required: true
+          schema: 
+            $ref: "#/definitions/CommentBody"
+      responses:
+        200:
+          description: Returns the commented updated
 
   /spec:
     get:
