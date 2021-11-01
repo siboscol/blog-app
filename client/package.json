@@ -2,7 +2,7 @@
   "name": "blog-ui",
   "version": "0.0.1",
   "description": "A simple Blog UI built with Quasar",
-  "productName": "Quasar Blog UI App",
+  "productName": "Simo's Blog",
   "author": "Simone Boscolo Berto",
   "private": true,
   "scripts": {

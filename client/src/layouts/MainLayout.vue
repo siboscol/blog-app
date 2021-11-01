@@ -1,43 +1,24 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
+    <q-header elevated class="bg-mountains">
       <q-toolbar>
-        <q-btn
+        <q-toolbar-title> Simo's Blog </q-toolbar-title>
+
+        <q-btn-toggle
+          v-model="model"
           flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="toggleLeftDrawer"
+          stretch
+          :options="options"
         />
-
-        <q-toolbar-title>
-          Quasar App
-        </q-toolbar-title>
-
-        <div>Quasar v{{ $q.version }}</div>
       </q-toolbar>
+      <div class="content">
+        <h1 class="heading">
+          <span class="small">welcome in the world of</span>
+          simo's
+          <span class="no-fill">simple blog</span>
+        </h1>
+      </div>
     </q-header>
-
-    <q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      bordered
-    >
-      <q-list>
-        <q-item-label
-          header
-        >
-          Essential Links
-        </q-item-label>
-
-        <EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
-          v-bind="link"
-        />
-      </q-list>
-    </q-drawer>
 
     <q-page-container>
       <router-view />
@@ -46,72 +27,50 @@
 </template>
 
 <script>
-import EssentialLink from 'components/EssentialLink.vue'
-
-const linksList = [
-  {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev'
-  },
-  {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework'
-  },
-  {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev'
-  },
-  {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev'
-  },
-  {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev'
-  },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev'
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev'
-  }
-];
-
 import { defineComponent, ref } from 'vue'
 
 export default defineComponent({
   name: 'MainLayout',
-
-  components: {
-    EssentialLink
-  },
-
-  setup () {
-    const leftDrawerOpen = ref(false)
-
+  setup() {
     return {
-      essentialLinks: linksList,
-      leftDrawerOpen,
-      toggleLeftDrawer () {
-        leftDrawerOpen.value = !leftDrawerOpen.value
-      }
+      model: ref('posts'),
+
+      options: [
+        { label: 'Posts', value: 'posts' },
+        { label: 'About', value: 'about' }
+      ]
     }
   }
 })
 </script>
+
+<style lang="scss">
+.bg-mountains {
+  height: calc(40vh);
+  background: url(assets/mountains-22.jpg);
+  background-repeat: no-repeat;
+}
+
+.content {
+  text-align: center;
+}
+
+.heading {
+  color: #fff;
+  text-transform: capitalize;
+  font-size: 80px;
+  line-height: 80px;
+  margin-bottom: 80px;
+}
+
+.heading .small {
+  display: block;
+  font-size: 40px;
+}
+
+.heading .no-fill {
+  font-style: italic;
+  color: transparent;
+  -webkit-text-stroke: 2px #fff;
+}
+</style>
