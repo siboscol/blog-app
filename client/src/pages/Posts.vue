@@ -8,15 +8,14 @@
         </q-card-section>
         <q-card-actions align="right">
           <q-btn flat round color="primary" icon="comment">
-            <q-badge rounded color="red" floating> 4 </q-badge>
+            <q-badge color="red" align="middle"> 4 </q-badge>
           </q-btn>
         </q-card-actions>
       </q-card>
 
-      <q-card
-        class="my-card text-white"
-        style="background: radial-gradient(circle, #35a2ff 0%, #014a88 100%)"
-      >
+      <q-card class="my-card">
+        <img src="https://cdn.quasar.dev/img/mountains.jpg" />
+
         <q-card-section>
           <div class="text-h6">Our Changing Planet</div>
           <div class="text-subtitle2">by John Doe</div>
