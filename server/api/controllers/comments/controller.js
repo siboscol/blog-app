@@ -29,12 +29,16 @@ export class Controller {
 
   create(req, res) {
     const { text, username } = req.body
-    CommentsService.create(req.params.postId, text, username).then(r =>
-      res
-        .status(201)
-        .location(`/api/v1/posts/${req.params.postId}/comments/${r.id}`)
-        .json(r)
-    )
+    CommentsService.create(req.params.postId, text, username).then(r => {
+      if (r) {
+        res
+          .status(201)
+          .location(`/api/v1/posts/${req.params.postId}/comments/${r.id}`)
+          .json(r)
+      } else {
+        res.status(404).end()
+      }
+    })
   }
 }
 export default new Controller()

@@ -1,183 +1,40 @@
 <template>
   <q-page class="flex flex-center">
-    <div v-if="!loading" class="q-pa-md row items-start q-gutter-md">
-      <!-- <report-card v-for="report in reports" :key="report.code" :report="report" /> -->
-      <q-card class="my-card">
-        <q-card-section>
-          {{ lorem }}
-        </q-card-section>
-        <q-card-actions align="right">
-          <q-btn flat round color="primary" icon="comment">
-            <q-badge color="red" align="middle"> 4 </q-badge>
-          </q-btn>
-        </q-card-actions>
-      </q-card>
-
-      <q-card class="my-card">
-        <img src="https://cdn.quasar.dev/img/mountains.jpg" />
-
-        <q-card-section>
-          <div class="text-h6">Our Changing Planet</div>
-          <div class="text-subtitle2">by John Doe</div>
-        </q-card-section>
-
-        <q-card-section class="q-pt-none">
-          {{ lorem }}
-        </q-card-section>
-      </q-card>
-
-      <q-card dark bordered class="bg-grey-9 my-card">
-        <q-card-section>
-          <div class="text-h6">Our Changing Planet</div>
-          <div class="text-subtitle2">by John Doe</div>
-        </q-card-section>
-
-        <q-separator dark inset />
-
-        <q-card-section>
-          {{ lorem }}
-        </q-card-section>
-      </q-card>
-
-      <q-card flat bordered class="my-card">
-        <q-card-section>
-          <div class="text-h6">Our Changing Planet</div>
-        </q-card-section>
-
-        <q-card-section class="q-pt-none">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </q-card-section>
-
-        <q-separator inset />
-
-        <q-card-section>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </q-card-section>
-      </q-card>
-
-      <q-card class="my-card">
-        <q-card-section>
-          {{ lorem }}
-        </q-card-section>
-      </q-card>
-
-      <q-card
-        class="my-card text-white"
-        style="background: radial-gradient(circle, #35a2ff 0%, #014a88 100%)"
-      >
-        <q-card-section>
-          <div class="text-h6">Our Changing Planet</div>
-          <div class="text-subtitle2">by John Doe</div>
-        </q-card-section>
-
-        <q-card-section class="q-pt-none">
-          {{ lorem }}
-        </q-card-section>
-      </q-card>
-
-      <q-card dark bordered class="bg-grey-9 my-card">
-        <q-card-section>
-          <div class="text-h6">Our Changing Planet</div>
-          <div class="text-subtitle2">by John Doe</div>
-        </q-card-section>
-
-        <q-separator dark inset />
-
-        <q-card-section>
-          {{ lorem }}
-        </q-card-section>
-      </q-card>
-
-      <q-card flat bordered class="my-card">
-        <q-card-section>
-          <div class="text-h6">Our Changing Planet</div>
-        </q-card-section>
-
-        <q-card-section class="q-pt-none">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </q-card-section>
-
-        <q-separator inset />
-
-        <q-card-section>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </q-card-section>
-      </q-card>
-
-      <q-card class="my-card">
-        <q-card-section>
-          {{ lorem }}
-        </q-card-section>
-      </q-card>
-
-      <q-card
-        class="my-card text-white"
-        style="background: radial-gradient(circle, #35a2ff 0%, #014a88 100%)"
-      >
-        <q-card-section>
-          <div class="text-h6">Our Changing Planet</div>
-          <div class="text-subtitle2">by John Doe</div>
-        </q-card-section>
-
-        <q-card-section class="q-pt-none">
-          {{ lorem }}
-        </q-card-section>
-      </q-card>
-
-      <q-card dark bordered class="bg-grey-9 my-card">
-        <q-card-section>
-          <div class="text-h6">Our Changing Planet</div>
-          <div class="text-subtitle2">by John Doe</div>
-        </q-card-section>
-
-        <q-separator dark inset />
-
-        <q-card-section>
-          {{ lorem }}
-        </q-card-section>
-      </q-card>
-
-      <q-card flat bordered class="my-card">
-        <q-card-section>
-          <div class="text-h6">Our Changing Planet</div>
-        </q-card-section>
-
-        <q-card-section class="q-pt-none">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </q-card-section>
-
-        <q-separator inset />
-
-        <q-card-section>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </q-card-section>
-      </q-card>
+    <div v-if="!loading" class="q-pa-md row justify-center items-start q-gutter-md">
+      <post v-for="post in posts" :key="post.id" :post="post" />
     </div>
   </q-page>
 </template>
 
 <script>
 import { defineComponent } from 'vue'
+import BlogAPI from '../services/BlogAPI'
+import Post from '../components/Post.vue'
 
 export default defineComponent({
-  name: 'PageIndex',
-  setup() {
+  name: 'Posts',
+  components: { Post },
+  data() {
     return {
-      lorem:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+      posts: [],
+      loading: false
     }
+  },
+  methods: {
+    async loadPosts() {
+      this.loading = true
+      try {
+        this.posts = await BlogAPI.get('/posts')
+        console.log('posts from server', this.posts)
+      } catch (error) {
+        console.log('Error while loading posts', error)
+      } finally {
+        this.loading = false
+      }
+    }
+  },
+  async mounted() {
+    await this.loadPosts()
   }
 })
 </script>
-
-<style lang="sass" scoped>
-.my-card
-  width: 100%
-  max-width: 250px
-</style>

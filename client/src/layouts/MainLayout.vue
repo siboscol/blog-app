@@ -13,7 +13,7 @@
       </q-toolbar>
       <div class="content">
         <h1 class="heading">
-          <span class="small">welcome in the world of</span>
+          <span class="small">welcome to</span>
           simo's
           <span class="no-fill">simple blog</span>
         </h1>
@@ -47,8 +47,8 @@ export default defineComponent({
 <style lang="scss">
 .bg-mountains {
   height: calc(40vh);
-  background: url(assets/mountains-22.jpg);
   background-repeat: no-repeat;
+  background: url(assets/mountains-22.jpg);
 }
 
 .content {
