@@ -1,12 +1,5 @@
 const posts = require('../data/posts.json')
 
-const getRandomID = () => {
-  // Math.random should be unique because of its seeding algorithm.
-  // Convert it to base 36 (numbers + letters), and grab the first 9 characters
-  // after the decimal.
-  return '_' + Math.random().toString(36).substr(2, 9)
-}
-
 const find = (list, id) => {
   return list.find(p => p.id == id)
 }
@@ -14,10 +7,19 @@ const find = (list, id) => {
 class Database {
   constructor() {
     this._posts = posts
+    this._counterPosts = 3
+    this._conterComments = 4
   }
 
   getAllPosts() {
-    return Promise.resolve(this._posts)
+    const posts = this._posts.map(p => {
+      const commentTotal = p.comments ? p.comments.length : 0
+      // eslint-disable-next-line no-unused-vars
+      const { comments, ...post } = p
+      post.comments = commentTotal
+      return post
+    })
+    return Promise.resolve(posts)
   }
 
   getPostbyId(id) {
@@ -25,10 +27,11 @@ class Database {
   }
 
   insertPost(title, body) {
+    this._counterPosts += 1
     const record = {
-      id: getRandomID(),
+      id: this._counterPosts,
       title,
-      body,
+      body
     }
     this._posts.push(record)
 
@@ -63,16 +66,22 @@ class Database {
   }
 
   insertComment(postId, text, username = '') {
-    const record = {
-      id: getRandomID(),
-      text,
-      username,
-      timestamp: new Date().getTime()
-    }
     const post = find(this._posts, postId)
-    post.comments.push(record)
-
-    return Promise.resolve(record)
+    if (post) {
+      this._conterComments += 1
+      const record = {
+        id: this._conterComments,
+        text,
+        username,
+        timestamp: new Date().getTime()
+      }
+      if (!post.comments) {
+        post.comments = []
+      }
+      post.comments.push(record)
+      return Promise.resolve(record)
+    }
+    return Promise.resolve(null)
   }
 }
 

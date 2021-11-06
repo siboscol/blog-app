@@ -33,6 +33,12 @@
       "runtimeExecutable": "nodemon",
       "runtimeArgs": ["--exec", "babel-node"],
       "program": "${workspaceFolder}/server/index.js",
+      "args": [
+        "--config",
+        "nodemonrc.json",
+        "|",
+        "pino-pretty"
+      ],
       "restart": true,
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen"
