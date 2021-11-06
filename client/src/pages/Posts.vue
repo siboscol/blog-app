@@ -9,7 +9,7 @@
 <script>
 import { defineComponent } from 'vue'
 import BlogAPI from '../services/BlogAPI'
-import Post from '../components/Post.vue'
+import Post from '../components/PostCard.vue'
 
 export default defineComponent({
   name: 'Posts',
