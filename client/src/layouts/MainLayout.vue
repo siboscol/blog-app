@@ -9,6 +9,7 @@
           flat
           stretch
           :options="options"
+          @click.stop="goTo()"
         />
       </q-toolbar>
       <div class="content q-pb-md">
@@ -39,6 +40,12 @@ export default defineComponent({
         { label: 'Posts', value: 'posts' },
         { label: 'About', value: 'about' }
       ]
+    }
+  },
+  methods: {
+    goTo() {
+      const page = this.model === 'about' ? '/about' : '/'
+      this.$router.push(page)
     }
   }
 })
