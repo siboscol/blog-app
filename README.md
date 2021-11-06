@@ -92,7 +92,12 @@ npm run test:debug
 
 #### Debug with VSCode
 
-Add these [contents](https://github.com/cdimascio/generator-express-no-stress/blob/next/assets/.vscode/launch.json) to your `.vscode/launch.json` file
+On the `launch.json` file there are configuration to attach to a process, debug the tests and debug the server.
+
+In order to debug the server and obtain prettier logs, install globally pino-pretty:
+```
+yarn global add pino-pretty
+```
 ## Lint It
 
 View prettier linter output

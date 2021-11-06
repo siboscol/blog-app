@@ -1,6 +1,6 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
-    <q-header elevated class="bg-mountains">
+  <q-layout view="lhh Lpr lFf">
+    <q-header elevated class="bg-hero-mountains">
       <q-toolbar>
         <q-toolbar-title> Simo's Blog </q-toolbar-title>
 
@@ -11,7 +11,7 @@
           :options="options"
         />
       </q-toolbar>
-      <div class="content">
+      <div class="content q-pb-md">
         <h1 class="heading">
           <span class="small">welcome to</span>
           simo's
@@ -45,10 +45,10 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-.bg-mountains {
-  height: calc(40vh);
-  background-repeat: no-repeat;
-  background: url(assets/mountains-22.jpg);
+.bg-hero-mountains {
+	background: url(assets/mountains-2.jpeg);
+	background-position: center;
+	background-repeat: no-repeat;
 }
 
 .content {
@@ -59,7 +59,7 @@ export default defineComponent({
   color: #fff;
   text-transform: capitalize;
   font-size: 80px;
-  line-height: 80px;
+  line-height: 60px;
   margin-bottom: 80px;
 }
 
