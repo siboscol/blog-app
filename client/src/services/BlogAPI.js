@@ -21,7 +21,23 @@ export default {
       method: 'post',
       conf: {},
       url: path,
-      data: qs.stringify(data, { arrayFormat: 'comma' })
+      data
+    }
+    return new Promise((resolve, reject) => {
+      api(opt)
+        .then(res => {
+          resolve(res.data)
+        })
+        .catch(err => {
+          reject(err)
+        })
+    })
+  },
+  put(path, data) {
+    let opt = {
+      method: 'put',
+      url: path,
+      data
     }
     return new Promise((resolve, reject) => {
       api(opt)

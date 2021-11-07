@@ -1,6 +1,6 @@
-# blog
+# Simple Blog
 
-Simple Blog Application
+Simple Blog App built with NodeJs and Quasar.
 
 ## Get Started
 
@@ -70,10 +70,7 @@ npm run test:debug
 
 ## Try It
 * Open your browser to [http://localhost:3000](http://localhost:3000)
-* Invoke the `/examples` endpoint 
-  ```shell
-  curl http://localhost:3000/api/v1/examples
-  ```
+* In order to see all endpoints and to test them go to [http://localhost:3000/api-explorer/](http://localhost:3000/api-explorer/)
 
 
 ## Debug It

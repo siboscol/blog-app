@@ -1,12 +1,15 @@
 <template>
   <q-card class="my-card" @click.stop="$router.push(to)">
-    <img src="https://cdn.quasar.dev/img/mountains.jpg" />
+    <q-img
+      :src="imgUrl"
+      spinner-color="white"
+    />
 
     <q-card-section>
       <div class="text-h6">{{ post.title }}</div>
     </q-card-section>
 
-    <q-card-section class="q-pt-none text-wrap">
+    <q-card-section class="q-pt-none text-wrap truncate">
       {{ post.body }}
     </q-card-section>
     <q-card-actions v-if="post.comments" align="right">
@@ -25,15 +28,12 @@ export default {
       required: true
     }
   },
-  data() {
-    return {
-      lorem:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-    }
-  },
   computed: {
     to() {
       return `/post/${this.post.id}`
+    },
+    imgUrl() {
+      return `https://picsum.photos/300/200?random=${this.post.id}`
     }
   },
 }
@@ -46,6 +46,11 @@ export default {
 }
 .text-wrap {
   overflow-wrap: break-word;
+}
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 </style>

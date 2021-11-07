@@ -18,8 +18,8 @@ export class Controller {
 
   update(req, res) {
     const { postId, commentId } = req.params
-    const { text } = req.body
-    CommentsService.update(postId, commentId, text).then(r =>
+    const { text, username } = req.body
+    CommentsService.update(postId, commentId, text, username).then(r =>
       res
         .status(201)
         .location(`/api/v1/posts/${postId}/comments/${commentId}`)

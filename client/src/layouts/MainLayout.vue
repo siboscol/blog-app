@@ -13,7 +13,11 @@
         />
       </q-toolbar>
       <div class="content q-pb-md">
-        <h1 class="heading">
+        <h1 v-if="title" class="heading">
+          <span class="small">{{ $route.path === '/about' ? '#CV' : '#post' }}</span>
+          <span class="no-fill">{{ title }}</span>
+        </h1>
+        <h1 v-else class="heading">
           <span class="small">welcome to</span>
           simo's
           <span class="no-fill">simple blog</span>
@@ -22,7 +26,7 @@
     </q-header>
 
     <q-page-container>
-      <router-view />
+      <router-view @title="e => title = e" @update-nav="model = ''" />
     </q-page-container>
   </q-layout>
 </template>
@@ -32,19 +36,21 @@ import { defineComponent, ref } from 'vue'
 
 export default defineComponent({
   name: 'MainLayout',
-  setup() {
+  data() {
     return {
       model: ref('posts'),
 
       options: [
         { label: 'Posts', value: 'posts' },
         { label: 'About', value: 'about' }
-      ]
+      ],
+      title: ''
     }
   },
   methods: {
     goTo() {
       const page = this.model === 'about' ? '/about' : '/'
+      this.title = ''
       this.$router.push(page)
     }
   }

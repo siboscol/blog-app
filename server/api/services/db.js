@@ -46,11 +46,14 @@ class Database {
     return Promise.resolve(null)
   }
 
-  updateComment(postId, commentId, text) {
+  updateComment(postId, commentId, text, username) {
     const post = find(this._posts, postId)
     const comment = find(post.comments, commentId)
     if (comment) {
       comment.text = text
+      if (username) {
+        comment.username = username
+      }
       comment.timestamp = new Date().getTime()
       return Promise.resolve(comment)
     }
@@ -78,7 +81,7 @@ class Database {
       if (!post.comments) {
         post.comments = []
       }
-      post.comments.push(record)
+      post.comments.unshift(record)
       return Promise.resolve(record)
     }
     return Promise.resolve(null)
