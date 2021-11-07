@@ -1,6 +1,5 @@
 <template>
   <q-card class="my-card" @click.stop="$router.push(to)">
-    <!-- <img src="https://picsum.photos/300" :key="post.id" /> -->
     <q-img
       :src="imgUrl"
       spinner-color="white"
