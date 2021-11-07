@@ -2,44 +2,88 @@
   {
     "id": 1,
     "title": "Post n.1",
-    "body": "This is an example of a blog post.",
+    "body": "Hello everyone, I hope you like my simple blog! This is something I made from scratch in order to demonstrate my skills in Javascript, both front and back end.",
     "comments": [
       {
         "id": 1,
-        "text": "Comment n.1",
+        "text": "WOW!!! This blog is awesome!",
         "username": "sberto",
-        "timespamp": 434234324
+        "timestamp": 434234324
       },
       {
         "id": 2,
-        "text": "Comment n.2",
+        "text": "Super cool the way it looks!",
         "username": "sberto",
-        "timespamp": 434234324
+        "timestamp": 434234324
       },
       {
         "id": 3,
-        "text": "Comment n.3",
+        "text": "I'm glad to see that create and update a comment works!",
         "username": "sberto",
-        "timespamp": 434234324
+        "timestamp": 434234324
       }
     ]
   },
   {
     "id": 2,
     "title": "Post n.2",
+    "body": "This is an example of a blog post.",
+    "comments": [
+      {
+        "id": 1,
+        "text": "Comment n.1",
+        "username": "sberto",
+        "timestamp": 434234324
+      },
+      {
+        "id": 2,
+        "text": "Comment n.2",
+        "username": "sberto",
+        "timestamp": 434234324
+      },
+      {
+        "id": 3,
+        "text": "Comment n.3",
+        "username": "sberto",
+        "timestamp": 434234324
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Post n.3",
     "body": "This blog post is meant to demonstrate the capabilities of blog app APIs",
     "comments": [
       {
         "id": 1,
         "text": "Comment n.1 post n.2",
         "username": "sberto",
-        "timespamp": 434234324
+        "timestamp": 434234324
       },
       {
         "id": 2,
         "text": "Comment n.2 post n.2",
         "username": "sberto",
-        "timespamp": 434234324
+        "timestamp": 434234324
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Post n.4",
+    "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum dignissim leo nec nisi dapibus efficitur. Ut condimentum nisl dolor, et varius eros blandit pellentesque. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec dolor nunc, condimentum ut orci vel, tempor porttitor orci. Phasellus nunc velit, feugiat vitae congue quis, vestibulum ut eros. Nunc pharetra gravida eleifend. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec vitae tincidunt eros, vitae faucibus risus. Aliquam ac augue ut sem dictum scelerisque eget id neque. Donec pellentesque sagittis lorem et sodales. Fusce vel quam vitae lacus bibendum ultrices non a enim. Praesent sollicitudin tristique tellus in condimentum. Aliquam est lorem, volutpat eu maximus sollicitudin, malesuada a erat. Etiam ultricies odio odio, quis facilisis enim accumsan a. Duis laoreet, lacus id scelerisque rutrum, tellus justo convallis felis, tempor cursus nulla arcu eu nunc. Quisque blandit condimentum magna id placerat. Nulla ac venenatis nisi, et auctor nibh. Quisque mollis ornare sem. Proin porta, lectus sed maximus pretium, sapien turpis congue dui, posuere posuere lorem metus malesuada enim. Morbi posuere, mauris eget suscipit accumsan, magna risus rutrum dolor, et vehicula felis augue non sapien. Nam quis congue risus. Morbi ac ornare augue. Nunc ac luctus neque. Integer gravida tincidunt sapien, ut ornare leo sagittis sit amet. Donec vestibulum nec nulla eu dictum. Donec non luctus risus.Donec ultricies nulla suscipit ligula mollis hendrerit. Duis ac egestas turpis, quis ultrices risus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam ut nisl porta, ultrices turpis ut, pellentesque diam. Donec eleifend dui sem, sit amet consequat dolor fermentum eu. Pellentesque luctus augue dolor. Nullam nec sem dignissim, efficitur dui vitae, gravida enim. Duis molestie sodales cursus. Duis sollicitudin, odio quis rhoncus commodo, dui neque finibus metus, vel sodales velit purus eu ex. Donec molestie, risus vitae scelerisque semper, enim metus dictum neque, in tempor augue nulla id ex. Nullam consequat nulla sed lorem consequat varius. Aliquam erat volutpat. Aenean mollis cursus erat, at lobortis est tincidunt sit amet.Praesent eget neque nec ipsum viverra faucibus. Etiam et aliquet mi. Aliquam elit orci, varius ac dignissim ac, tincidunt a ligula. Etiam elementum aliquam turpis sit amet pretium. Sed at elit at sapien porttitor blandit. Nulla facilisi. Donec at est massa. Aliquam porttitor arcu a magna euismod, nec cursus lacus consequat. Proin quis magna eleifend, maximus tellus a, pretium orci. Sed iaculis dolor lacus, a ornare eros rutrum sed. Ut tellus est, rutrum sed sagittis ut, interdum ut turpis. Mauris varius erat vitae lobortis faucibus. Fusce ornare ex et imperdiet fringilla. Sed dignissim sapien ut dui ullamcorper pellentesque. Fusce non sodales libero.Vivamus sollicitudin dapibus imperdiet. Vivamus hendrerit, sapien at blandit feugiat, est nisl sollicitudin massa, ac bibendum massa odio id quam. Donec imperdiet nunc turpis, vel hendrerit tortor elementum id. Aliquam cursus nisi lacinia, fermentum odio sit amet, tristique purus. Duis sed gravida risus. Nam pellentesque purus ligula. Integer tincidunt consectetur ipsum eu iaculis. Mauris tristique erat non odio scelerisque, vel cursus massa rutrum. Donec felis sem, varius at nisl sit amet, semper dignissim ante. Vivamus mattis nibh eget libero sollicitudin, at tristique arcu commodo. Aliquam non odio nec sem condimentum sollicitudin eu in risus. Nullam ornare laoreet dapibus. In hac habitasse platea dictumst. Nullam non odio ex. Sed maximus est id tempus aliquet. Vestibulum dignissim sed quam sit amet mollis.",
+    "comments": [
+      {
+        "id": 1,
+        "text": "Comment n.1 post n.2",
+        "username": "sberto",
+        "timestamp": 434234324
+      },
+      {
+        "id": 2,
+        "text": "Comment n.2 post n.2",
+        "username": "sberto",
+        "timestamp": 434234324
       }
     ]
   }

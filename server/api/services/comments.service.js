@@ -12,9 +12,11 @@ class CommentsService {
     return db.getCommentByPostIdCommentId(postId, commentId)
   }
 
-  update(postId, commentId, text) {
-    l.info(`${this.constructor.name}.update(${postId}, ${commentId}, ${text})`)
-    return db.updateComment(postId, commentId, text)
+  update(postId, commentId, text, username = '') {
+    l.info(
+      `${this.constructor.name}.update(${postId}, ${commentId}, ${text}, ${username})`
+    )
+    return db.updateComment(postId, commentId, text, username)
   }
 
   create(postId, text, username) {

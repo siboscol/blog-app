@@ -1,21 +1,23 @@
 <template>
   <q-page padding class="post q-pt-lg">
-    <div class="row q-pb-lg">
+    <div class="row q-pt-lg q-pb-xl">
       {{ post.body }}
     </div>
-    <new-comment />
-    <comments v-if="post.comments" class="q-mt-lg" :comments="post.comments" />
+    <comments
+      v-if="post.comments"
+      :comments="post.comments"
+      @reload-comments="loadPost()"
+    />
   </q-page>
 </template>
 
 <script>
 import BlogAPI from '../services/BlogAPI'
 import Comments from '../components/Comments.vue'
-import NewComment from '../components/NewComment.vue'
 
 export default {
   name: 'Post',
-  components: { Comments , NewComment },
+  components: { Comments },
   data() {
     return {
       post: {},
@@ -29,6 +31,7 @@ export default {
         this.post = await BlogAPI.get(`/posts/${this.$route.params.id}`)
         console.log('post from server', this.post)
         this.$emit('title', this.post.title)
+        this.$emit('update-nav')
       } catch (error) {
         console.log(`Error while loading ${this.$route.params.id} posts`, error)
       } finally {

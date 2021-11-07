@@ -1,5 +1,5 @@
 <template>
-  <q-item>
+  <q-item clickable>
     <q-item-section top avatar>
       <q-avatar color="primary" size="xl" text-color="white" icon="person" />
     </q-item-section>
@@ -12,7 +12,7 @@
     </q-item-section>
 
     <q-item-section side>
-      <q-btn flat dense round color="primary" icon="edit" />
+      <q-btn flat dense round color="primary" icon="edit" @click.stop="$emit('edit-comment', comment)" />
     </q-item-section>
   </q-item>
 </template>

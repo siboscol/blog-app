@@ -14,7 +14,7 @@
       </q-toolbar>
       <div class="content q-pb-md">
         <h1 v-if="title" class="heading">
-          <span class="small">Simo's</span>
+          <span class="small">{{ $route.path === '/about' ? '#CV' : '#post' }}</span>
           <span class="no-fill">{{ title }}</span>
         </h1>
         <h1 v-else class="heading">
@@ -26,7 +26,7 @@
     </q-header>
 
     <q-page-container>
-      <router-view @title="e => title = e" />
+      <router-view @title="e => title = e" @update-nav="model = ''" />
     </q-page-container>
   </q-layout>
 </template>

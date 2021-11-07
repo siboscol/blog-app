@@ -1,7 +1,7 @@
 <template>
   <q-page padding>
     <div v-if="!loading" class="q-pt-lg posts row justify-center items-start q-gutter-md">
-      <post v-for="post in posts" :key="post.id" :post="post" />
+      <post-card v-for="post in posts" :key="post.id" :post="post" />
     </div>
   </q-page>
 </template>
@@ -9,11 +9,11 @@
 <script>
 import { defineComponent } from 'vue'
 import BlogAPI from '../services/BlogAPI'
-import Post from '../components/PostCard.vue'
+import PostCard from '../components/PostCard.vue'
 
 export default defineComponent({
   name: 'Posts',
-  components: { Post },
+  components: { PostCard },
   data() {
     return {
       posts: [],
