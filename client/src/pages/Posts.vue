@@ -1,6 +1,6 @@
 <template>
-  <q-page class="flex flex-center">
-    <div v-if="!loading" class="q-pa-md row justify-center items-start q-gutter-md">
+  <q-page padding>
+    <div v-if="!loading" class="q-pt-lg posts row justify-center items-start q-gutter-md">
       <post v-for="post in posts" :key="post.id" :post="post" />
     </div>
   </q-page>
@@ -38,3 +38,10 @@ export default defineComponent({
   }
 })
 </script>
+
+<style>
+.posts {
+  max-width: 75rem;
+  margin: 0 auto;
+}
+</style>

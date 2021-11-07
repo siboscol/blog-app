@@ -1,15 +1,24 @@
 <template>
-  <q-page padding> This is a Post Page..... </q-page>
+  <q-page padding class="post q-pt-lg">
+    <div class="row q-pb-lg">
+      {{ post.body }}
+    </div>
+    <new-comment />
+    <comments v-if="post.comments" class="q-mt-lg" :comments="post.comments" />
+  </q-page>
 </template>
 
 <script>
 import BlogAPI from '../services/BlogAPI'
+import Comments from '../components/Comments.vue'
+import NewComment from '../components/NewComment.vue'
 
 export default {
   name: 'Post',
+  components: { Comments , NewComment },
   data() {
     return {
-      post: null,
+      post: {},
       loading: false
     }
   },
@@ -32,3 +41,10 @@ export default {
   }
 }
 </script>
+
+<style>
+.post {
+  max-width: 65rem;
+  margin: 0 auto;
+}
+</style>
