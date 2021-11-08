@@ -1,11 +1,28 @@
-FROM node:14-alpine
+FROM node:14-alpine AS ui-build
 LABEL Author Simone Boscolo Berto <simone.boscoloberto@protonmail.com>
+WORKDIR /usr/src/app
+
+RUN mkdir -p /usr/src/app/client
+COPY client/package.json ./client
+RUN cd client && npm install
+
+COPY client/ ./client/
+RUN cd client && npm run build
+
+FROM node:14-alpine AS server-build
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
-COPY . /usr/src/app
+COPY package.json ./
+COPY --from=ui-build /usr/src/app/client/dist/spa ./public
+
 RUN npm install
+RUN npm install -g pino-pretty
+
+COPY . /usr/src/app
+
+RUN npm run compile
 
 EXPOSE 3000
 
