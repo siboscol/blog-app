@@ -1,5 +1,5 @@
 <template>
-  <q-card class="my-card" @click.stop="$router.push(to)">
+  <q-card class="post-card" @click.stop="$router.push(to)">
     <q-img
       :src="imgUrl"
       spinner-color="grey"
@@ -40,9 +40,8 @@ export default {
 </script>
 
 <style scoped>
-.my-card {
+.post-card {
     width: 100%;
-    max-width: 250px;
 }
 .text-wrap {
   overflow-wrap: break-word;

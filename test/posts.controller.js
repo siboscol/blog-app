@@ -10,7 +10,7 @@ describe('Posts', () => {
       .get('/api/v1/posts')
       .expect('Content-Type', /json/)
       .then(r => {
-        expect(r.body).to.be.an.an('array').of.length(2)
+        expect(r.body).to.be.an.an('array').of.length(4)
       }))
 
   it('should add a new post', () =>

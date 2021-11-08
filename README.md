@@ -1,7 +1,7 @@
 # Simo's Simple Blog
 
 Simple Blog App built with NodeJs (Express) and VueJs (Quasar).  
-This web app consists of a server (nodejs) and a client (Quasar) with actual storage and the data are mocked in json file (server/api/data/posts.json).  
+This sample web app consists of a server (nodejs) and a client (Quasar) with NO actual storage and the data are mocked in json file (_server/api/data/posts.json_).  
 The backend provides APIs for:
 - Get all posts
 - Get/create a post
@@ -17,25 +17,51 @@ The frontend provides a:
 The app provides unit tests for both server and client, together with a dockerfile to run it in a container.
 ## Getting Started
 
-Get started developing...
-
 ```shell
-# install dependencies
-npm install
+# install server dependencies
+npm install 
+# or
+yarn
 
-# run in development mode
+# run server in development mode
 npm run dev
+# or
+yarn dev
 
-# run tests
-npm run test
+# In a separate terminal 
+# install client dependencies
+cd client
+npm install 
+# or
+yarn
+
+# run client in development mode
+npm run dev
+# or
+yarn dev
 ```
+
+## Try It
+* Go to [http://localhost:8080](http://localhost:8080) to see the client
+* In order to see all endpoints specification go to [http://localhost:3000/api-explorer/](http://localhost:3000/api-explorer/)
 
 ## Install Dependencies
 
-Install all package dependencies (one time operation)
+Install all server package dependencies (one time operation)
 
 ```shell
 npm install
+# or
+yarn
+```
+
+Install all client package dependencies (one time operation)
+
+```shell
+cd client
+npm install
+# or
+yarn
 ```
 
 ## Run It
@@ -43,13 +69,24 @@ npm install
 Runs the application is development mode. Should not be used in production
 
 ```shell
+# run server in development mode
 npm run dev
+# or
+yarn dev
+
+# run client in development mode
+cd client
+npm run dev
+# or
+yarn dev
 ```
 
-or debug it
+or debug the server (See vscode section)
 
 ```shell
 npm run dev:debug
+# or
+yarn dev:debug
 ```
 
 #### Run in *production* mode:
@@ -58,7 +95,18 @@ Compiles the application and starts it in production production mode.
 
 ```shell
 npm run compile
+# or
+yarn compile
+
 npm start
+# or
+yarn start
+
+# build client in production mode to be served by a web server
+cd client
+npm run build
+# or
+yarn build
 ```
 
 #### Run it in a docker container
@@ -75,23 +123,32 @@ docker run -it -p 3000:3000 --name blog-container blog-image
 
 ## Test It
 
-Run the Mocha unit tests
+Run the Mocha unit tests for the server 
 
 ```shell
+# test server
 npm test
+# or
+yarn test
 ```
 
-or debug them
+or debug test server
 
 ```shell
 npm run test:debug
+# or
+yarn test:debug
 ```
 
-## Try It
-* Open your browser to [http://localhost:3000](http://localhost:3000)
-* In order to see all endpoints and to test them go to [http://localhost:3000/api-explorer/](http://localhost:3000/api-explorer/)
+Run the Jest unit tests for the client 
 
+```shell
+npm run test:unit
+# or
+yarn test:unit
+```
 
+See scripts in _client/package.json_ for available tests.
 ## Debug It
 
 #### Debug the server:
@@ -116,15 +173,19 @@ yarn global add pino-pretty
 ```
 ## Lint It
 
-View prettier linter output
+View prettier linter output for the server
 
 ```
 npm run lint
+# or 
+yarn lint
 ```
 
 Fix all prettier linter errors
 
 ```
-npm run lint
+npm run lint:fix
+# or
+yarn lint:fix
 ```
 
