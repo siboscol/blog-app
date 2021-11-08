@@ -1,4 +1,5 @@
 FROM node:14-alpine AS ui-build
+LABEL Author Simone Boscolo Berto <simone.boscoloberto@protonmail.com>
 WORKDIR /usr/src/app
 
 RUN mkdir -p /usr/src/app/client
@@ -9,7 +10,6 @@ COPY client/ ./client/
 RUN cd client && npm run build
 
 FROM node:14-alpine AS server-build
-LABEL Author Simone Boscolo Berto <simone.boscoloberto@protonmail.com>
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
