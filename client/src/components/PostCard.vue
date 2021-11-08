@@ -2,7 +2,7 @@
   <q-card class="my-card" @click.stop="$router.push(to)">
     <q-img
       :src="imgUrl"
-      spinner-color="white"
+      spinner-color="grey"
     />
 
     <q-card-section>
