@@ -57,7 +57,7 @@ export default {
         this.isCommentSent = true
         console.log('Comment from the server', commentReceived)
       } catch (error) {
-        console.log(`Error while creating new comment`, error)
+        console.log(`Error while creating-editing a comment`, error)
       } finally {
         setTimeout(() => this.isCommentSent = false, 1000)
         this.loading = false

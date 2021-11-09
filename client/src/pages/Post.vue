@@ -8,6 +8,9 @@
       :comments="post.comments"
       @reload-comments="loadPost()"
     />
+    <div v-if="hasError" class="absolute-center">
+      An error occurred while loading the post. Please go back to the homepage.
+    </div>
   </q-page>
 </template>
 
@@ -21,7 +24,8 @@ export default {
   data() {
     return {
       post: {},
-      loading: false
+      loading: false,
+      hasError: false
     }
   },
   methods: {
@@ -33,7 +37,8 @@ export default {
         this.$emit('title', this.post.title)
         this.$emit('update-nav')
       } catch (error) {
-        console.log(`Error while loading ${this.$route.params.id} posts`, error)
+        console.log(`Error while loading post id ${this.$route.params.id}`, error)
+        this.hasError = true
       } finally {
         this.loading = false
       }

@@ -46,5 +46,6 @@
     "pino-pretty": "^5.0.1",
     "supertest": "^6.1.3"
   },
-  "author": "Simone Boscolo Berto <simone.boscoloberto@protonmail.com> (https://github.com/siboscol)"
+  "author": "Simone Boscolo Berto <simone.boscoloberto@protonmail.com> (https://github.com/siboscol)",
+  "license": "MIT"
 }

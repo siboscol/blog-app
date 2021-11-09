@@ -42,6 +42,7 @@ export default {
 <style scoped>
 .post-card {
     width: 100%;
+    width: 250px;
 }
 .text-wrap {
   overflow-wrap: break-word;
